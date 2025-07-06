@@ -2,46 +2,95 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <img src="https://raw.githubusercontent.com/14MD/fiche-ema/main/logo-ema-events.png" alt="EMA EVENTS" class="logo">
-  <title>Redirection Fiche de mission EMA</title>
+  <title>Fiche de mission EMA</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: rgb(17, 17, 17);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .logo-top {
+      background: rgb(17, 17, 17);
+      width: 100%;
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+    .logo-top img {
+      width: 140px;
+      height: auto;
+    }
+    .container {
+      background-color: #fff;
+      color: #000;
+      max-width: 800px;
+      width: 90%;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      margin-bottom: 30px;
     }
     h1 {
-      color: #444;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
     }
     .section {
-      margin-bottom: 10px;
-      padding: 10px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background: #f5f5f5;
+      border-radius: 6px;
     }
     .label {
       font-weight: bold;
     }
-    .redirect-info {
-      background: #fffbe6;
-      padding: 15px;
-      border: 1px solid #ffd324;
-      border-radius: 6px;
-      margin-top: 20px;
+    a {
+      color: #0049b7;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 10px 40px;
+      font-size: 14px;
+      color: #fff;
+      width: 100%;
     }
   </style>
-  <script>
-    // Redirection automatique vers le bon index.html dans le sous-dossier
-    const path = window.location.pathname;
-    if (path !== "/" && !path.endsWith("index.html")) {
-      window.location.href = path.replace(/\/$/, "") + "/index.html";
-    }
-  </script>
 </head>
 <body>
 
-  <h1>Fiche de mission EMA</h1>
+  <div class="logo-top">
+    <img src="https://raw.githubusercontent.com/14MD/fiche-ema/main/logo-ema-events.png" alt="EMA EVENTS">
+  </div>
 
-  <div class="redirect-info">
-    <p>Redirection automatique en cour
+  <div class="container">
+    <h1>Fiche de mission : {{ 3. Intitulé }}</h1>
+
+    <div class="section"><span class="label">Client :</span> {{ 3. Clients[] }}</div>
+    <div class="section"><span class="label">Date :</span> {{ 3. Date Début }}</div>
+    <div class="section"><span class="label">Heure :</span> {{ 3. Horaire Start Event }}</div>
+    <div class="section"><span class="label">Lieu :</span> {{ 3. Lieu }}</div>
+    <div class="section"><span class="label">Chef de Projet :</span> {{ 3. Chef de Projet }}</div>
+    <div class="section"><span class="label">Équipe terrain :</span> {{ 3. Équipe[] }}</div>
+    <div class="section"><span class="label">Externes :</span> {{ 3. Externe[] }}</div>
+    <div class="section"><span class="label">Véhicule(s) :</span> {{ 3. Flotte Vehicule[] }}</div>
+    <div class="section"><span class="label">Prestations :</span> {{ 3. Prestations[] }}</div>
+    <div class="section"><span class="label">Commentaires :</span> {{ 3. Commentaires }}</div>
+
+    <div class="section">
+      <span class="label">📎 Pièce Jointe :</span><br>
+      <a href="{{ 3. Pièce Jointe URL }}" target="_blank">Voir le document</a>
+    </div>
+  </div>
+
+  <footer>
+    PLUS QU'UNE AGENCE ÉVÉNEMENTIELLE, UNE MAISON AUX PRESTATIONS UNIQUES
+  </footer>
+
+</body>
+</html>
